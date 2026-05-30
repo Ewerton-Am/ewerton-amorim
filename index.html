@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ewerton Amorim – Desenvolvedor de Sites e Landing Pages profissionais. Rápido, moderno e focado em resultado.">
+<title>Ewerton Amorim – Sites & Landing Pages</title>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{--green:#00E5A0;--dark:#090C0F;--mid:#111720;--card:#141B24;--border:#1E2D3D;--white:#F0F4F8;--muted:#6B8299}
+  html{scroll-behavior:smooth}
+  body{font-family:system-ui,-apple-system,sans-serif;background:var(--dark);color:var(--white);line-height:1.7}
+  a{color:var(--green);text-decoration:none}
+  a:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+
+  /* HEADER */
+  header{position:sticky;top:0;z-index:100;background:#090C0Fee;backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:.9rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
+  .logo{font-size:1rem;font-weight:800;letter-spacing:.3px;color:var(--white)}
+  .logo span{color:var(--green)}
+  nav{display:flex;gap:1.5rem;flex-wrap:wrap}
+  nav a{font-size:.875rem;color:var(--muted);transition:color .2s}
+  nav a:hover{color:var(--white)}
+
+  /* HERO */
+  .hero{min-height:94vh;display:flex;align-items:center;padding:5rem 2rem;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 55% 65% at 85% 40%,#00E5A014,transparent)}
+  .hero::after{content:"";position:absolute;top:-200px;left:-200px;width:600px;height:600px;background:radial-gradient(circle,#00E5A006,transparent 70%)}
+  .hero-inner{max-width:960px;margin:0 auto;position:relative;z-index:1}
+  .hero-tag{display:inline-flex;align-items:center;gap:.5rem;background:#00E5A010;border:1px solid #00E5A035;color:var(--green);font-size:.78rem;border-radius:2rem;padding:.35rem 1rem;margin-bottom:2rem;font-weight:600;text-transform:uppercase;letter-spacing:.8px}
+  .hero-tag::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+  .hero h1{font-size:clamp(2.2rem,6vw,4rem);font-weight:900;line-height:1.08;margin-bottom:1.5rem;letter-spacing:-1px}
+  .hero h1 .name{color:var(--green);display:block}
+  .hero h1 .sub{color:var(--muted);font-size:.6em;font-weight:400;letter-spacing:0;display:block;margin-top:.5rem}
+  .hero p{font-size:1.05rem;color:var(--muted);max-width:500px;margin-bottom:2.75rem;line-height:1.8}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:1rem;align-items:center}
+  .btn{display:inline-block;background:var(--green);color:#090C0F;font-weight:800;font-size:.95rem;padding:.85rem 2rem;border-radius:.5rem;transition:transform .2s,box-shadow .2s;letter-spacing:.3px}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px #00E5A040;color:#090C0F}
+  .btn-ghost{background:transparent;border:1px solid var(--border);color:var(--muted);padding:.82rem 1.75rem;border-radius:.5rem;font-size:.9rem;font-weight:600;transition:border-color .2s,color .2s}
+  .btn-ghost:hover{border-color:var(--green);color:var(--white)}
+  .hero-stats{display:flex;gap:3rem;margin-top:4rem;flex-wrap:wrap;padding-top:2.5rem;border-top:1px solid var(--border)}
+  .stat strong{display:block;font-size:1.8rem;font-weight:900;color:var(--green);line-height:1}
+  .stat span{font-size:.8rem;color:var(--muted);margin-top:.25rem;display:block}
+
+  /* SECTION */
+  section{padding:5.5rem 2rem}
+  .container{max-width:960px;margin:0 auto}
+  .sec-tag{font-size:.72rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--green);margin-bottom:.75rem}
+  h2{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:800;line-height:1.15;margin-bottom:.75rem;letter-spacing:-.5px}
+  .sec-sub{color:var(--muted);font-size:.95rem;margin-bottom:3rem;max-width:520px}
+
+  /* SERVIÇOS */
+  .servicos{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem}
+  .srv{background:var(--card);border:1px solid var(--border);border-radius:1rem;padding:2rem;position:relative;overflow:hidden;transition:border-color .25s}
+  .srv:hover{border-color:#00E5A060}
+  .srv::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--green);opacity:0;transition:opacity .25s}
+  .srv:hover::before{opacity:1}
+  .srv-icon{font-size:2rem;margin-bottom:1.25rem;display:block}
+  .srv h3{font-size:1.05rem;font-weight:700;margin-bottom:.5rem}
+  .srv p{font-size:.875rem;color:var(--muted);line-height:1.7}
+  .srv-tag{display:inline-block;font-size:.7rem;font-weight:700;background:#00E5A015;color:var(--green);border-radius:.3rem;padding:.2rem .6rem;margin-top:1rem}
+
+  /* PROCESSO */
+  .processo{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin-top:1rem;counter-reset:step}
+  .passo{background:var(--card);border:1px solid var(--border);border-radius:1rem;padding:1.75rem;position:relative}
+  .passo::before{counter-increment:step;content:counter(step,"0");position:absolute;top:1.25rem;right:1.25rem;font-size:2rem;font-weight:900;color:var(--border);line-height:1}
+  .passo h3{font-size:.95rem;font-weight:700;margin-bottom:.4rem}
+  .passo p{font-size:.85rem;color:var(--muted)}
+
+  /* PORTFOLIO */
+  .portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;margin-top:1rem}
+  .proj{background:var(--card);border:1px solid var(--border);border-radius:1rem;overflow:hidden;transition:transform .2s,border-color .2s}
+  .proj:hover{transform:translateY(-3px);border-color:#00E5A040}
+  .proj-thumb{height:160px;display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative}
+  .proj-thumb.t1{background:linear-gradient(135deg,#0D1B2A,#1A2F44)}
+  .proj-thumb.t2{background:linear-gradient(135deg,#0A0A0A,#1A0A00)}
+  .proj-thumb.t3{background:linear-gradient(135deg,#0A0A1A,#1A1040)}
+  .proj-body{padding:1.5rem}
+  .proj-tipo{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--green);margin-bottom:.5rem}
+  .proj h3{font-size:.95rem;font-weight:700;margin-bottom:.4rem}
+  .proj p{font-size:.82rem;color:var(--muted)}
+
+  /* DIFERENCIAIS */
+  .dif-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem}
+  .dif{display:flex;gap:1rem;align-items:flex-start;padding:1.25rem;background:var(--card);border:1px solid var(--border);border-radius:.75rem}
+  .dif-check{color:var(--green);font-size:1.1rem;margin-top:.1rem;flex-shrink:0}
+  .dif h3{font-size:.9rem;font-weight:700;margin-bottom:.25rem}
+  .dif p{font-size:.82rem;color:var(--muted)}
+
+  /* CONTATO */
+  .contato-box{background:var(--card);border:1px solid var(--border);border-radius:1.25rem;padding:3rem 2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+  .contato-info h3{font-size:1.3rem;font-weight:800;margin-bottom:.75rem}
+  .contato-info p{font-size:.9rem;color:var(--muted);margin-bottom:2rem;line-height:1.8}
+  .contato-links{display:flex;flex-direction:column;gap:.75rem}
+  .contato-link{display:flex;align-items:center;gap:.75rem;font-size:.9rem;color:var(--muted);transition:color .2s}
+  .contato-link:hover{color:var(--green)}
+  .contato-link-icon{width:36px;height:36px;border-radius:.5rem;background:var(--border);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+  .contato-cta{background:var(--mid);border:1px solid var(--border);border-radius:1rem;padding:2rem;text-align:center}
+  .contato-cta h4{font-size:1rem;font-weight:700;margin-bottom:.5rem}
+  .contato-cta p{font-size:.85rem;color:var(--muted);margin-bottom:1.5rem}
+  .disponivel{display:inline-flex;align-items:center;gap:.5rem;font-size:.8rem;color:var(--green);font-weight:600;margin-bottom:1.5rem}
+  .disponivel::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+
+  /* FOOTER */
+  footer{background:#060809;border-top:1px solid var(--border);padding:2rem;text-align:center;font-size:.82rem;color:var(--muted)}
+  footer a{color:var(--muted)}footer a:hover{color:var(--green)}
+
+  .back-top{position:fixed;bottom:2rem;right:2rem;background:var(--green);color:#090C0F;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.1rem;z-index:99;transition:transform .2s;text-decoration:none}
+  .back-top:hover{transform:scale(1.1);color:#090C0F}
+
+  @media(max-width:720px){
+    .contato-box{grid-template-columns:1fr}
+    .hero-stats{gap:2rem}
+  }
+  @media(max-width:600px){
+    header{padding:.9rem 1.25rem}
+    nav{gap:1rem}
+    section{padding:3.5rem 1.25rem}
+    .hero{padding:3.5rem 1.25rem}
+    .contato-box{padding:1.75rem 1.25rem}
+  }
+</style>
+</head>
+<body>
+
+<span id="topo"></span>
+
+<header>
+  <div class="logo">Ewerton<span>.</span>dev</div>
+  <nav aria-label="Navegação principal">
+    <a href="#servicos">Serviços</a>
+    <a href="#portfolio">Portfólio</a>
+    <a href="#processo">Processo</a>
+    <a href="#contato">Contato</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio" aria-labelledby="hero-titulo">
+    <div class="hero-inner">
+      <span class="hero-tag">Disponível para novos projetos</span>
+      <h1 id="hero-titulo">
+        <span class="name">Ewerton Amorim</span>
+        Desenvolvedor de Sites<br>& Landing Pages
+        <span class="sub">Transformo ideias em páginas que geram resultados</span>
+      </h1>
+      <p>Sites modernos, rápidos e responsivos para negócios que querem se destacar online — entregues com agilidade e atenção aos detalhes.</p>
+      <div class="hero-ctas">
+        <a href="#contato" class="btn">Solicitar orçamento</a>
+        <a href="#portfolio" class="btn-ghost">Ver portfólio</a>
+      </div>
+      <div class="hero-stats" aria-label="Números">
+        <div class="stat"><strong>100%</strong><span>Responsivo & mobile-first</span></div>
+        <div class="stat"><strong>48h</strong><span>Prazo médio de entrega</span></div>
+        <div class="stat"><strong>5★</strong><span>Satisfação dos clientes</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section id="servicos" style="background:var(--mid)">
+    <div class="container">
+      <p class="sec-tag">O que ofereço</p>
+      <h2>Serviços disponíveis</h2>
+      <p class="sec-sub">Cada projeto é desenvolvido do zero, com foco no seu objetivo e na experiência do usuário final.</p>
+      <div class="servicos">
+        <article class="srv">
+          <span class="srv-icon" aria-hidden="true">🖥️</span>
+          <h3>Site institucional</h3>
+          <p>Presença online completa para sua marca ou negócio. Design moderno, responsivo e otimizado para aparecer no Google.</p>
+          <span class="srv-tag">HTML · CSS · WordPress</span>
+        </article>
+        <article class="srv">
+          <span class="srv-icon" aria-hidden="true">🎯</span>
+          <h3>Landing Page de alta conversão</h3>
+          <p>Páginas focadas em um único objetivo: captar leads ou vender. Estrutura persuasiva e layout que guia o visitante à ação.</p>
+          <span class="srv-tag">HTML · CSS · Elementor</span>
+        </article>
+        <article class="srv">
+          <span class="srv-icon" aria-hidden="true">📱</span>
+          <h3>Site mobile-first</h3>
+          <p>A maioria dos acessos vem do celular. Desenvolvo pensando primeiro no mobile, garantindo uma experiência perfeita em qualquer tela.</p>
+          <span class="srv-tag">Responsivo · Otimizado</span>
+        </article>
+        <article class="srv">
+          <span class="srv-icon" aria-hidden="true">⚡</span>
+          <h3>Página de vendas para produto digital</h3>
+          <p>Layout estratégico para cursos, mentorias e infoprodutos — com seções de prova social, benefícios e CTA irresistível.</p>
+          <span class="srv-tag">Copywriting · Design · CRO</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <div class="container">
+      <p class="sec-tag">Trabalhos recentes</p>
+      <h2>Portfólio</h2>
+      <p class="sec-sub">Exemplos de projetos desenvolvidos com foco em modernidade, usabilidade e resultado.</p>
+      <div class="portfolio-grid">
+        <article class="proj">
+          <div class="proj-thumb t1" aria-hidden="true">🎓</div>
+          <div class="proj-body">
+            <p class="proj-tipo">Página de vendas</p>
+            <h3>NovaMente Academy</h3>
+            <p>Landing page para curso de Inteligência Artificial voltado a pequenos negócios. Design clean com paleta azul/ciano.</p>
+          </div>
+        </article>
+        <article class="proj">
+          <div class="proj-thumb t2" aria-hidden="true">📈</div>
+          <div class="proj-body">
+            <p class="proj-tipo">Página de vendas</p>
+            <h3>ScaleUp Digital</h3>
+            <p>Site de mentoria de tráfego pago. Visual escuro e impactante com foco em conversão e prova social.</p>
+          </div>
+        </article>
+        <article class="proj">
+          <div class="proj-thumb t3" aria-hidden="true">💼</div>
+          <div class="proj-body">
+            <p class="proj-tipo">Site institucional</p>
+            <h3>Portfólio profissional</h3>
+            <p>Esta página — desenvolvida com HTML5 e CSS3 puro, sem frameworks, com foco em performance e acessibilidade.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESSO -->
+  <section id="processo" style="background:var(--mid)">
+    <div class="container">
+      <p class="sec-tag">Como trabalhamos</p>
+      <h2>Processo de entrega</h2>
+      <p class="sec-sub">Simples, transparente e sem surpresas. Do briefing à entrega em poucos dias.</p>
+      <div class="processo">
+        <div class="passo">
+          <h3>Briefing</h3>
+          <p>Entendo seus objetivos, público-alvo e referências visuais antes de começar qualquer linha de código.</p>
+        </div>
+        <div class="passo">
+          <h3>Proposta</h3>
+          <p>Envio um orçamento claro com escopo, prazo e valor. Sem letras miúdas.</p>
+        </div>
+        <div class="passo">
+          <h3>Desenvolvimento</h3>
+          <p>Construo a página com foco em performance, responsividade e boas práticas de código.</p>
+        </div>
+        <div class="passo">
+          <h3>Revisão</h3>
+          <p>Você revisa e solicita ajustes. Trabalho até você estar satisfeito com o resultado.</p>
+        </div>
+        <div class="passo">
+          <h3>Entrega</h3>
+          <p>Envio os arquivos finais ou publico diretamente na hospedagem de sua preferência.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFERENCIAIS -->
+  <section>
+    <div class="container">
+      <p class="sec-tag">Por que me contratar</p>
+      <h2>O que você recebe em cada projeto</h2>
+      <p class="sec-sub">Além do código, entrego atenção, clareza e compromisso com o seu resultado.</p>
+      <div class="dif-grid">
+        <div class="dif">
+          <span class="dif-check" aria-hidden="true">✓</span>
+          <div><h3>Entrega rápida</h3><p>Prazo médio de 48h para landing pages simples. Sem enrolação.</p></div>
+        </div>
+        <div class="dif">
+          <span class="dif-check" aria-hidden="true">✓</span>
+          <div><h3>Código limpo</h3><p>HTML5 e CSS3 semântico, acessível e fácil de manter.</p></div>
+        </div>
+        <div class="dif">
+          <span class="dif-check" aria-hidden="true">✓</span>
+          <div><h3>Mobile-first</h3><p>Cada página é testada em diferentes tamanhos de tela antes da entrega.</p></div>
+        </div>
+        <div class="dif">
+          <span class="dif-check" aria-hidden="true">✓</span>
+          <div><h3>Comunicação clara</h3><p>Você sempre sabe em que etapa está o projeto.</p></div>
+        </div>
+        <div class="dif">
+          <span class="dif-check" aria-hidden="true">✓</span>
+          <div><h3>Revisões inclusas</h3><p>Ajustes até você aprovar. Sem cobranças extras por revisões.</p></div>
+        </div>
+        <div class="dif">
+          <span class="dif-check" aria-hidden="true">✓</span>
+          <div><h3>Arquivos entregues</h3><p>Você fica com todos os arquivos do projeto. Sem dependência.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato" style="background:var(--mid)">
+    <div class="container">
+      <p class="sec-tag">Vamos conversar</p>
+      <h2>Entre em contato</h2>
+      <p class="sec-sub">Tem um projeto em mente? Me conta o que você precisa e respondo em poucas horas.</p>
+      <div class="contato-box">
+        <div class="contato-info">
+          <h3>Ewerton Amorim</h3>
+          <p>Desenvolvedor de sites e landing pages focado em entregar resultados reais para negócios e empreendedores digitais.</p>
+          <div class="contato-links">
+            <a href="mailto:ewerton.amorim.si.ccna@gmail.com" class="contato-link" rel="noopener noreferrer">
+              <span class="contato-link-icon" aria-hidden="true">✉️</span>
+              ewerton.amorim.si.ccna@gmail.com
+            </a>
+            <a href="https://www.fiverr.com" class="contato-link" target="_blank" rel="noopener noreferrer">
+              <span class="contato-link-icon" aria-hidden="true">🌐</span>
+              Fiverr – Ewerton Amorim
+            </a>
+          </div>
+        </div>
+        <div class="contato-cta">
+          <span class="disponivel">Disponível agora</span>
+          <h4>Solicite seu orçamento</h4>
+          <p>Resposta em até 4 horas nos dias úteis. Sem compromisso.</p>
+          <a href="mailto:ewerton.amorim.si.ccna@gmail.com" class="btn" style="display:block">Enviar mensagem</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2025 Ewerton Amorim · Desenvolvedor de Sites & Landing Pages · <a href="#topo">Voltar ao topo</a></p>
+</footer>
+
+<a href="#topo" class="back-top" aria-label="Voltar ao topo">↑</a>
+
+</body>
+</html>
