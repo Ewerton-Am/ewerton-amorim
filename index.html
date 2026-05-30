@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Ewerton Amorim – Desenvolvedor de Sites e Landing Pages profissionais. Rápido, moderno e focado em resultado.">
+<meta name="description" content="Ewerton Amorim – Professional Sites & Landing Pages Developer. Fast, modern and results-driven.">
 <title>Ewerton Amorim – Sites & Landing Pages</title>
 <style>
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -24,14 +24,13 @@
   /* HERO */
   .hero{min-height:94vh;display:flex;align-items:center;padding:5rem 2rem;position:relative;overflow:hidden}
   .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 55% 65% at 85% 40%,#00E5A014,transparent)}
-  .hero::after{content:"";position:absolute;top:-200px;left:-200px;width:600px;height:600px;background:radial-gradient(circle,#00E5A006,transparent 70%)}
   .hero-inner{max-width:960px;margin:0 auto;position:relative;z-index:1}
   .hero-tag{display:inline-flex;align-items:center;gap:.5rem;background:#00E5A010;border:1px solid #00E5A035;color:var(--green);font-size:.78rem;border-radius:2rem;padding:.35rem 1rem;margin-bottom:2rem;font-weight:600;text-transform:uppercase;letter-spacing:.8px}
   .hero-tag::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
   .hero h1{font-size:clamp(2.2rem,6vw,4rem);font-weight:900;line-height:1.08;margin-bottom:1.5rem;letter-spacing:-1px}
   .hero h1 .name{color:var(--green);display:block}
-  .hero h1 .sub{color:var(--muted);font-size:.6em;font-weight:400;letter-spacing:0;display:block;margin-top:.5rem}
+  .hero h1 .sub{color:var(--muted);font-size:.55em;font-weight:400;letter-spacing:0;display:block;margin-top:.6rem;line-height:1.5}
   .hero p{font-size:1.05rem;color:var(--muted);max-width:500px;margin-bottom:2.75rem;line-height:1.8}
   .hero-ctas{display:flex;flex-wrap:wrap;gap:1rem;align-items:center}
   .btn{display:inline-block;background:var(--green);color:#090C0F;font-weight:800;font-size:.95rem;padding:.85rem 2rem;border-radius:.5rem;transition:transform .2s,box-shadow .2s;letter-spacing:.3px}
@@ -49,7 +48,7 @@
   h2{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:800;line-height:1.15;margin-bottom:.75rem;letter-spacing:-.5px}
   .sec-sub{color:var(--muted);font-size:.95rem;margin-bottom:3rem;max-width:520px}
 
-  /* SERVIÇOS */
+  /* SERVICES */
   .servicos{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem}
   .srv{background:var(--card);border:1px solid var(--border);border-radius:1rem;padding:2rem;position:relative;overflow:hidden;transition:border-color .25s}
   .srv:hover{border-color:#00E5A060}
@@ -60,34 +59,38 @@
   .srv p{font-size:.875rem;color:var(--muted);line-height:1.7}
   .srv-tag{display:inline-block;font-size:.7rem;font-weight:700;background:#00E5A015;color:var(--green);border-radius:.3rem;padding:.2rem .6rem;margin-top:1rem}
 
-  /* PROCESSO */
-  .processo{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin-top:1rem;counter-reset:step}
-  .passo{background:var(--card);border:1px solid var(--border);border-radius:1rem;padding:1.75rem;position:relative}
-  .passo::before{counter-increment:step;content:counter(step,"0");position:absolute;top:1.25rem;right:1.25rem;font-size:2rem;font-weight:900;color:var(--border);line-height:1}
-  .passo h3{font-size:.95rem;font-weight:700;margin-bottom:.4rem}
-  .passo p{font-size:.85rem;color:var(--muted)}
-
   /* PORTFOLIO */
   .portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;margin-top:1rem}
-  .proj{background:var(--card);border:1px solid var(--border);border-radius:1rem;overflow:hidden;transition:transform .2s,border-color .2s}
+  .proj{background:var(--card);border:1px solid var(--border);border-radius:1rem;overflow:hidden;transition:transform .2s,border-color .2s;display:flex;flex-direction:column}
   .proj:hover{transform:translateY(-3px);border-color:#00E5A040}
-  .proj-thumb{height:160px;display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative}
+  .proj-thumb{height:160px;display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative;flex-direction:column;gap:.5rem}
   .proj-thumb.t1{background:linear-gradient(135deg,#0D1B2A,#1A2F44)}
   .proj-thumb.t2{background:linear-gradient(135deg,#0A0A0A,#1A0A00)}
   .proj-thumb.t3{background:linear-gradient(135deg,#0A0A1A,#1A1040)}
-  .proj-body{padding:1.5rem}
-  .proj-tipo{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--green);margin-bottom:.5rem}
-  .proj h3{font-size:.95rem;font-weight:700;margin-bottom:.4rem}
-  .proj p{font-size:.82rem;color:var(--muted)}
+  .proj-thumb-label{font-size:.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#ffffff55}
+  .proj-body{padding:1.5rem;flex:1;display:flex;flex-direction:column;gap:.75rem}
+  .proj-tipo{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--green)}
+  .proj h3{font-size:.95rem;font-weight:700}
+  .proj p{font-size:.82rem;color:var(--muted);flex:1}
+  .proj-link{display:inline-flex;align-items:center;gap:.4rem;font-size:.82rem;font-weight:700;color:var(--green);border:1px solid #00E5A030;border-radius:.4rem;padding:.4rem .85rem;transition:background .2s,border-color .2s;align-self:flex-start;margin-top:.25rem}
+  .proj-link:hover{background:#00E5A015;border-color:var(--green)}
+  .proj-link::after{content:"↗";font-size:.8rem}
 
-  /* DIFERENCIAIS */
+  /* PROCESS */
+  .processo{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.25rem;margin-top:1rem;counter-reset:step}
+  .passo{background:var(--card);border:1px solid var(--border);border-radius:1rem;padding:1.75rem;position:relative}
+  .passo::before{counter-increment:step;content:counter(step,"0");position:absolute;top:1.25rem;right:1.25rem;font-size:2rem;font-weight:900;color:var(--border);line-height:1}
+  .passo h3{font-size:.9rem;font-weight:700;margin-bottom:.4rem}
+  .passo p{font-size:.82rem;color:var(--muted)}
+
+  /* DIFFERENTIALS */
   .dif-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem}
   .dif{display:flex;gap:1rem;align-items:flex-start;padding:1.25rem;background:var(--card);border:1px solid var(--border);border-radius:.75rem}
   .dif-check{color:var(--green);font-size:1.1rem;margin-top:.1rem;flex-shrink:0}
   .dif h3{font-size:.9rem;font-weight:700;margin-bottom:.25rem}
   .dif p{font-size:.82rem;color:var(--muted)}
 
-  /* CONTATO */
+  /* CONTACT */
   .contato-box{background:var(--card);border:1px solid var(--border);border-radius:1.25rem;padding:3rem 2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
   .contato-info h3{font-size:1.3rem;font-weight:800;margin-bottom:.75rem}
   .contato-info p{font-size:.9rem;color:var(--muted);margin-bottom:2rem;line-height:1.8}
@@ -98,12 +101,13 @@
   .contato-cta{background:var(--mid);border:1px solid var(--border);border-radius:1rem;padding:2rem;text-align:center}
   .contato-cta h4{font-size:1rem;font-weight:700;margin-bottom:.5rem}
   .contato-cta p{font-size:.85rem;color:var(--muted);margin-bottom:1.5rem}
-  .disponivel{display:inline-flex;align-items:center;gap:.5rem;font-size:.8rem;color:var(--green);font-weight:600;margin-bottom:1.5rem}
+  .disponivel{display:inline-flex;align-items:center;gap:.5rem;font-size:.8rem;color:var(--green);font-weight:600;margin-bottom:1.25rem}
   .disponivel::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
 
   /* FOOTER */
   footer{background:#060809;border-top:1px solid var(--border);padding:2rem;text-align:center;font-size:.82rem;color:var(--muted)}
-  footer a{color:var(--muted)}footer a:hover{color:var(--green)}
+  footer a{color:var(--muted)}
+  footer a:hover{color:var(--green)}
 
   .back-top{position:fixed;bottom:2rem;right:2rem;background:var(--green);color:#090C0F;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.1rem;z-index:99;transition:transform .2s;text-decoration:none}
   .back-top:hover{transform:scale(1.1);color:#090C0F}
@@ -127,67 +131,67 @@
 
 <header>
   <div class="logo">Ewerton<span>.</span>dev</div>
-  <nav aria-label="Navegação principal">
-    <a href="#servicos">Serviços</a>
-    <a href="#portfolio">Portfólio</a>
-    <a href="#processo">Processo</a>
-    <a href="#contato">Contato</a>
+  <nav aria-label="Main navigation">
+    <a href="#services">Services</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#process">Process</a>
+    <a href="#contact">Contact</a>
   </nav>
 </header>
 
 <main>
 
   <!-- HERO -->
-  <section class="hero" id="inicio" aria-labelledby="hero-titulo">
+  <section class="hero" id="top" aria-labelledby="hero-titulo">
     <div class="hero-inner">
-      <span class="hero-tag">Disponível para novos projetos</span>
+      <span class="hero-tag">Available for new projects</span>
       <h1 id="hero-titulo">
         <span class="name">Ewerton Amorim</span>
-        Desenvolvedor de Sites<br>& Landing Pages
-        <span class="sub">Transformo ideias em páginas que geram resultados</span>
+        Web Developer &<br>Landing Page Specialist
+        <span class="sub">I turn ideas into pages that generate real results</span>
       </h1>
-      <p>Sites modernos, rápidos e responsivos para negócios que querem se destacar online — entregues com agilidade e atenção aos detalhes.</p>
+      <p>Modern, fast, and fully responsive websites and landing pages for businesses that want to stand out online — delivered with speed and attention to detail.</p>
       <div class="hero-ctas">
-        <a href="#contato" class="btn">Solicitar orçamento</a>
-        <a href="#portfolio" class="btn-ghost">Ver portfólio</a>
+        <a href="#contact" class="btn">Request a quote</a>
+        <a href="#portfolio" class="btn-ghost">View portfolio</a>
       </div>
-      <div class="hero-stats" aria-label="Números">
-        <div class="stat"><strong>100%</strong><span>Responsivo & mobile-first</span></div>
-        <div class="stat"><strong>48h</strong><span>Prazo médio de entrega</span></div>
-        <div class="stat"><strong>5★</strong><span>Satisfação dos clientes</span></div>
+      <div class="hero-stats" aria-label="Key numbers">
+        <div class="stat"><strong>100%</strong><span>Responsive & mobile-first</span></div>
+        <div class="stat"><strong>48h</strong><span>Average delivery time</span></div>
+        <div class="stat"><strong>5★</strong><span>Client satisfaction</span></div>
       </div>
     </div>
   </section>
 
-  <!-- SERVIÇOS -->
-  <section id="servicos" style="background:var(--mid)">
+  <!-- SERVICES -->
+  <section id="services" style="background:var(--mid)">
     <div class="container">
-      <p class="sec-tag">O que ofereço</p>
-      <h2>Serviços disponíveis</h2>
-      <p class="sec-sub">Cada projeto é desenvolvido do zero, com foco no seu objetivo e na experiência do usuário final.</p>
+      <p class="sec-tag">What I offer</p>
+      <h2>Services</h2>
+      <p class="sec-sub">Every project is built from scratch, focused on your goal and the end user's experience.</p>
       <div class="servicos">
         <article class="srv">
           <span class="srv-icon" aria-hidden="true">🖥️</span>
-          <h3>Site institucional</h3>
-          <p>Presença online completa para sua marca ou negócio. Design moderno, responsivo e otimizado para aparecer no Google.</p>
+          <h3>Business website</h3>
+          <p>A complete online presence for your brand or business. Modern design, responsive layout, and SEO-ready structure.</p>
           <span class="srv-tag">HTML · CSS · WordPress</span>
         </article>
         <article class="srv">
           <span class="srv-icon" aria-hidden="true">🎯</span>
-          <h3>Landing Page de alta conversão</h3>
-          <p>Páginas focadas em um único objetivo: captar leads ou vender. Estrutura persuasiva e layout que guia o visitante à ação.</p>
+          <h3>High-converting landing page</h3>
+          <p>Pages focused on a single goal: capturing leads or closing sales. Persuasive structure and layout that guides the visitor to take action.</p>
           <span class="srv-tag">HTML · CSS · Elementor</span>
         </article>
         <article class="srv">
           <span class="srv-icon" aria-hidden="true">📱</span>
-          <h3>Site mobile-first</h3>
-          <p>A maioria dos acessos vem do celular. Desenvolvo pensando primeiro no mobile, garantindo uma experiência perfeita em qualquer tela.</p>
-          <span class="srv-tag">Responsivo · Otimizado</span>
+          <h3>Mobile-first website</h3>
+          <p>Most traffic comes from mobile. I design for mobile first, ensuring a flawless experience on every screen size.</p>
+          <span class="srv-tag">Responsive · Optimized</span>
         </article>
         <article class="srv">
           <span class="srv-icon" aria-hidden="true">⚡</span>
-          <h3>Página de vendas para produto digital</h3>
-          <p>Layout estratégico para cursos, mentorias e infoprodutos — com seções de prova social, benefícios e CTA irresistível.</p>
+          <h3>Sales page for digital products</h3>
+          <p>Strategic layout for courses, mentorships, and info products — with social proof, benefits sections, and irresistible CTAs.</p>
           <span class="srv-tag">Copywriting · Design · CRO</span>
         </article>
       </div>
@@ -197,130 +201,142 @@
   <!-- PORTFOLIO -->
   <section id="portfolio">
     <div class="container">
-      <p class="sec-tag">Trabalhos recentes</p>
-      <h2>Portfólio</h2>
-      <p class="sec-sub">Exemplos de projetos desenvolvidos com foco em modernidade, usabilidade e resultado.</p>
+      <p class="sec-tag">Recent work</p>
+      <h2>Portfolio</h2>
+      <p class="sec-sub">Real projects built with a focus on modern design, usability, and results. Click to see the live pages.</p>
       <div class="portfolio-grid">
         <article class="proj">
-          <div class="proj-thumb t1" aria-hidden="true">🎓</div>
+          <div class="proj-thumb t1" aria-hidden="true">
+            <span>🎓</span>
+            <span class="proj-thumb-label">Sales Page</span>
+          </div>
           <div class="proj-body">
-            <p class="proj-tipo">Página de vendas</p>
+            <p class="proj-tipo">Digital course</p>
             <h3>NovaMente Academy</h3>
-            <p>Landing page para curso de Inteligência Artificial voltado a pequenos negócios. Design clean com paleta azul/ciano.</p>
+            <p>Sales page for an AI course aimed at small business owners. Clean design with a blue/cyan palette, benefit sections, pricing, and FAQ.</p>
+            <a href="https://ewerton-am.github.io/portfolio/novamente-academy.html" target="_blank" rel="noopener noreferrer" class="proj-link">View live page</a>
           </div>
         </article>
         <article class="proj">
-          <div class="proj-thumb t2" aria-hidden="true">📈</div>
+          <div class="proj-thumb t2" aria-hidden="true">
+            <span>📈</span>
+            <span class="proj-thumb-label">Sales Page</span>
+          </div>
           <div class="proj-body">
-            <p class="proj-tipo">Página de vendas</p>
+            <p class="proj-tipo">Mentorship program</p>
             <h3>ScaleUp Digital</h3>
-            <p>Site de mentoria de tráfego pago. Visual escuro e impactante com foco em conversão e prova social.</p>
+            <p>Landing page for a paid traffic mentorship. Dark and bold design focused on conversion, social proof, and a detailed learning path.</p>
+            <a href="https://ewerton-am.github.io/portfolio/scaleup-digital.html" target="_blank" rel="noopener noreferrer" class="proj-link">View live page</a>
           </div>
         </article>
         <article class="proj">
-          <div class="proj-thumb t3" aria-hidden="true">💼</div>
+          <div class="proj-thumb t3" aria-hidden="true">
+            <span>💼</span>
+            <span class="proj-thumb-label">Portfolio</span>
+          </div>
           <div class="proj-body">
-            <p class="proj-tipo">Site institucional</p>
-            <h3>Portfólio profissional</h3>
-            <p>Esta página — desenvolvida com HTML5 e CSS3 puro, sem frameworks, com foco em performance e acessibilidade.</p>
+            <p class="proj-tipo">Professional portfolio</p>
+            <h3>This page</h3>
+            <p>Built with pure HTML5 and CSS3 — no frameworks, no JavaScript libraries. Fast, accessible, and fully responsive.</p>
+            <a href="#topo" class="proj-link">You're already here</a>
           </div>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- PROCESSO -->
-  <section id="processo" style="background:var(--mid)">
+  <!-- PROCESS -->
+  <section id="process" style="background:var(--mid)">
     <div class="container">
-      <p class="sec-tag">Como trabalhamos</p>
-      <h2>Processo de entrega</h2>
-      <p class="sec-sub">Simples, transparente e sem surpresas. Do briefing à entrega em poucos dias.</p>
+      <p class="sec-tag">How I work</p>
+      <h2>Delivery process</h2>
+      <p class="sec-sub">Simple, transparent, and no surprises. From briefing to delivery in just a few days.</p>
       <div class="processo">
         <div class="passo">
           <h3>Briefing</h3>
-          <p>Entendo seus objetivos, público-alvo e referências visuais antes de começar qualquer linha de código.</p>
+          <p>I learn about your goals, target audience, and visual references before writing a single line of code.</p>
         </div>
         <div class="passo">
-          <h3>Proposta</h3>
-          <p>Envio um orçamento claro com escopo, prazo e valor. Sem letras miúdas.</p>
+          <h3>Proposal</h3>
+          <p>I send a clear quote with scope, timeline, and price. No fine print.</p>
         </div>
         <div class="passo">
-          <h3>Desenvolvimento</h3>
-          <p>Construo a página com foco em performance, responsividade e boas práticas de código.</p>
+          <h3>Development</h3>
+          <p>I build the page with a focus on performance, responsiveness, and clean code best practices.</p>
         </div>
         <div class="passo">
-          <h3>Revisão</h3>
-          <p>Você revisa e solicita ajustes. Trabalho até você estar satisfeito com o resultado.</p>
+          <h3>Review</h3>
+          <p>You review and request adjustments. I work until you're fully satisfied with the result.</p>
         </div>
         <div class="passo">
-          <h3>Entrega</h3>
-          <p>Envio os arquivos finais ou publico diretamente na hospedagem de sua preferência.</p>
+          <h3>Delivery</h3>
+          <p>I send the final files or publish directly to your hosting of choice.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- DIFERENCIAIS -->
+  <!-- DIFFERENTIALS -->
   <section>
     <div class="container">
-      <p class="sec-tag">Por que me contratar</p>
-      <h2>O que você recebe em cada projeto</h2>
-      <p class="sec-sub">Além do código, entrego atenção, clareza e compromisso com o seu resultado.</p>
+      <p class="sec-tag">Why hire me</p>
+      <h2>What you get with every project</h2>
+      <p class="sec-sub">Beyond the code, I deliver attention, clarity, and commitment to your results.</p>
       <div class="dif-grid">
         <div class="dif">
           <span class="dif-check" aria-hidden="true">✓</span>
-          <div><h3>Entrega rápida</h3><p>Prazo médio de 48h para landing pages simples. Sem enrolação.</p></div>
+          <div><h3>Fast delivery</h3><p>Average 48h turnaround for simple landing pages. No delays.</p></div>
         </div>
         <div class="dif">
           <span class="dif-check" aria-hidden="true">✓</span>
-          <div><h3>Código limpo</h3><p>HTML5 e CSS3 semântico, acessível e fácil de manter.</p></div>
+          <div><h3>Clean code</h3><p>Semantic HTML5 and CSS3 — accessible, readable, and easy to maintain.</p></div>
         </div>
         <div class="dif">
           <span class="dif-check" aria-hidden="true">✓</span>
-          <div><h3>Mobile-first</h3><p>Cada página é testada em diferentes tamanhos de tela antes da entrega.</p></div>
+          <div><h3>Mobile-first</h3><p>Every page is tested on multiple screen sizes before delivery.</p></div>
         </div>
         <div class="dif">
           <span class="dif-check" aria-hidden="true">✓</span>
-          <div><h3>Comunicação clara</h3><p>Você sempre sabe em que etapa está o projeto.</p></div>
+          <div><h3>Clear communication</h3><p>You always know what stage the project is at.</p></div>
         </div>
         <div class="dif">
           <span class="dif-check" aria-hidden="true">✓</span>
-          <div><h3>Revisões inclusas</h3><p>Ajustes até você aprovar. Sem cobranças extras por revisões.</p></div>
+          <div><h3>Revisions included</h3><p>Adjustments until you approve — no extra charges for revisions.</p></div>
         </div>
         <div class="dif">
           <span class="dif-check" aria-hidden="true">✓</span>
-          <div><h3>Arquivos entregues</h3><p>Você fica com todos os arquivos do projeto. Sem dependência.</p></div>
+          <div><h3>Files delivered</h3><p>You keep all project files. No lock-in, no dependencies.</p></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CONTATO -->
-  <section id="contato" style="background:var(--mid)">
+  <!-- CONTACT -->
+  <section id="contact" style="background:var(--mid)">
     <div class="container">
-      <p class="sec-tag">Vamos conversar</p>
-      <h2>Entre em contato</h2>
-      <p class="sec-sub">Tem um projeto em mente? Me conta o que você precisa e respondo em poucas horas.</p>
+      <p class="sec-tag">Let's talk</p>
+      <h2>Get in touch</h2>
+      <p class="sec-sub">Have a project in mind? Tell me what you need and I'll get back to you within a few hours.</p>
       <div class="contato-box">
         <div class="contato-info">
           <h3>Ewerton Amorim</h3>
-          <p>Desenvolvedor de sites e landing pages focado em entregar resultados reais para negócios e empreendedores digitais.</p>
+          <p>Web developer focused on delivering real results through modern, fast, and conversion-ready pages for businesses and digital entrepreneurs worldwide.</p>
           <div class="contato-links">
-            <a href="mailto:ewerton.amorim.si.ccna@gmail.com" class="contato-link" rel="noopener noreferrer">
+            <a href="mailto:ewerton.amorim.si.ccna@gmail.com" class="contato-link">
               <span class="contato-link-icon" aria-hidden="true">✉️</span>
               ewerton.amorim.si.ccna@gmail.com
             </a>
-            <a href="https://www.fiverr.com" class="contato-link" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.fiverr.com" target="_blank" rel="noopener noreferrer" class="contato-link">
               <span class="contato-link-icon" aria-hidden="true">🌐</span>
               Fiverr – Ewerton Amorim
             </a>
           </div>
         </div>
         <div class="contato-cta">
-          <span class="disponivel">Disponível agora</span>
-          <h4>Solicite seu orçamento</h4>
-          <p>Resposta em até 4 horas nos dias úteis. Sem compromisso.</p>
-          <a href="mailto:ewerton.amorim.si.ccna@gmail.com" class="btn" style="display:block">Enviar mensagem</a>
+          <span class="disponivel">Available now</span>
+          <h4>Request your quote</h4>
+          <p>Response within 4 hours on business days. No commitment required.</p>
+          <a href="mailto:ewerton.amorim.si.ccna@gmail.com" class="btn" style="display:block">Send a message</a>
         </div>
       </div>
     </div>
@@ -329,10 +345,10 @@
 </main>
 
 <footer>
-  <p>© 2025 Ewerton Amorim · Desenvolvedor de Sites & Landing Pages · <a href="#topo">Voltar ao topo</a></p>
+  <p>© 2025 Ewerton Amorim · Web Developer & Landing Page Specialist · <a href="#topo">Back to top</a></p>
 </footer>
 
-<a href="#topo" class="back-top" aria-label="Voltar ao topo">↑</a>
+<a href="#topo" class="back-top" aria-label="Back to top">↑</a>
 
 </body>
 </html>
